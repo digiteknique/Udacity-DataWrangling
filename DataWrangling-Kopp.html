@@ -11833,7 +11833,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
@@ -12194,6 +12194,8 @@ div#notebook {
 </tr>
 </tbody>
 </table>
+<p>I think the benefit would be an easier to catgorize data point, and additional filters for a user. It would allow someone that is only interested in a fine dining experience to find all relavent entries. This could allow a user to filter down and possibly find new options in that category. Additionally, it would simplify queries that want to find the density of places in which to find cooked food as you can see from the above queries.</p>
+<p>There are some pretty big problems with making this change however. First, the sheer size of the data makes it very difficult to manage. Even with the small area I explored in this exercise there were nearly 800,000 records in the OSM file. Expand that worldwide and it becomes unmanageable. Second, we likley do not have this data for most of the restaurants. Determining if a restaurant is casual dining or fast food could be subjective for users making changes as well. Finally, there are likely APIs out there that expect to see Leisure/Fast Food entries. If we suddenly changed these records to be restaurants then that would be considered a breaking change for many. I am not sure the benefits outweigh the negatives in this instance.</p>
 
 </div>
 </div>
