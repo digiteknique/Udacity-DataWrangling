@@ -8,7 +8,7 @@ I used OpenStreetMap data for my hometown, Norman for this
 
 ## File Structure
 
-1. DataWrangling-Kopp.pdf - This is the project report. It contains details on the process of data wrangling and analysis.
+1. DataWrangling-Kopp.html - This is the project report. It contains details on the process of data wrangling and analysis.
 2. Audit folder - This contains the python scripts I wrote to audit the data to determine cleanliness
     * audit_fileselectore.py - The python file to quickly switch between samples in all of the audits
     * audit_postcodes.py - The python script to find errors or inconsistencies in post codes

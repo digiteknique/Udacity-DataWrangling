@@ -145,20 +145,7 @@ def validate_element(element, validator, schema=SCHEMA):
         error_string = pprint.pformat(errors)
 
         raise Exception(message_string.format(field, error_string))
-
-
-class UnicodeDictWriter(csv.DictWriter, object):
-    """Extend csv.DictWriter to handle Unicode input"""
-
-    def writerow(self, row):
-        super(UnicodeDictWriter, self).writerow({
-            k: (v.encode('utf-8') if isinstance(v, str) else v) for k, v in row.items()#.iteritems()
-        })
-
-    def writerows(self, rows):
-        for row in rows:
-            self.writerow(row)
-
+ 
 
 # ================================================== #
 #               Main Function                        #
@@ -172,11 +159,11 @@ def process_map(file_in, validate):
             codecs.open(WAY_NODES_PATH, 'w') as way_nodes_file, \
             codecs.open(WAY_TAGS_PATH, 'w') as way_tags_file:
 
-        nodes_writer = UnicodeDictWriter(nodes_file, NODE_FIELDS)
-        node_tags_writer = UnicodeDictWriter(nodes_tags_file, NODE_TAGS_FIELDS)
-        ways_writer = UnicodeDictWriter(ways_file, WAY_FIELDS)
-        way_nodes_writer = UnicodeDictWriter(way_nodes_file, WAY_NODES_FIELDS)
-        way_tags_writer = UnicodeDictWriter(way_tags_file, WAY_TAGS_FIELDS)
+        nodes_writer = csv.DictWriter(nodes_file, NODE_FIELDS)
+        node_tags_writer = csv.DictWriter(nodes_tags_file, NODE_TAGS_FIELDS)
+        ways_writer = csv.DictWriter(ways_file, WAY_FIELDS)
+        way_nodes_writer = csv.DictWriter(way_nodes_file, WAY_NODES_FIELDS)
+        way_tags_writer = csv.DictWriter(way_tags_file, WAY_TAGS_FIELDS)
 
         nodes_writer.writeheader()
         node_tags_writer.writeheader()

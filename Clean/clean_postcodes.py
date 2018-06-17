@@ -4,4 +4,6 @@ def replace_zipcode(postcode):
     }
     if postcode in mapping.keys():
         return mapping[postcode]
+    if len(postcode) > 5:
+        postcode = postcode[:5]
     return postcode
